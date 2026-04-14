@@ -1,0 +1,21 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "testRegex": "test/integration/.*\\.integration-spec\\.ts$",
+  "transform": {
+    "^.+\\.ts$": ["ts-jest", { "tsconfig": "<rootDir>/test/tsconfig.json" }]
+  },
+  "testEnvironment": "node",
+  "modulePathIgnorePatterns": ["<rootDir>/dist/"],
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "^@config/server$": "<rootDir>/src/config",
+    "^@config/swagger$": "<rootDir>/src/config/swagger",
+    "^@config/typeorm$": "<rootDir>/src/config/typeorm",
+    "^@filters$": "<rootDir>/src/common/filters",
+    "^@constants$": "<rootDir>/src/common/constants",
+    "^@exceptions$": "<rootDir>/src/common/exceptions",
+    "^@enums$": "<rootDir>/src/common/enums",
+    "^@models$": "<rootDir>/src/models"
+  }
+}

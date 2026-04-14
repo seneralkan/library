@@ -1,0 +1,43 @@
+name: library-management-service
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: library-management-service-postgres
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=library_management
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d library_management']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    # platform for M1 Mac
+    platform: linux/amd64
+
+  postgres-test:
+    image: postgres:16-alpine
+    container_name: library-management-service-postgres-test
+    restart: 'no'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=library_management_integration
+    ports:
+      - 55432:5432
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d library_management_integration']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    platform: linux/amd64
+
+volumes:
+  postgres_data:

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@config/server": ["src/config/"],
+      "@config/swagger": ["src/config/swagger"],
+      "@config/typeorm": ["src/config/typeorm"],
+      "@api": ["src/api/api.module.ts"],
+      "@filters": ["src/common/filters"],
+      "@constants": ["src/common/constants"],
+      "@exceptions": ["src/common/exceptions"],
+      "@enums": ["src/common/enums"],
+      "@models": ["src/models"],
+    }
+  }
+}
